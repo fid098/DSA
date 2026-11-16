@@ -6,14 +6,14 @@ public:
             return true if any value appears at least twice, and return false if every element is distinct
         */
 
-        std::unordered_map<int, int> count;
+        unordered_set<int> seen;
         for (int i {}; i < nums.size(); i++){
-            int num = nums[i];
-            count[num]++;
-            if (count[num] > 1){
+            if (seen.contains(nums[i])){
                 return true;
             }
+            seen.insert(nums[i]);
         }
+
         return false;
     }
 };
