@@ -1,30 +1,23 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        /*  
-            apparently boyer moore voting algorithm 
+        /*
+            this is the boyer voting algorithm 
 
-            candidate = 0
+            whenever the count is 0 meaning equal number of numbers, then we update the candidate 
+
+            if the candidate is the current number, then increment the count or we decrease the count
+
+
             count = 0
+            candidate = 0
+
+            nums = [3,2,3]
+                    i       count = 0, candidate = 1, 1 == candidate so count = 1
+                      i     count != 0, 2 != candidate so count = 0
+                        i   count = 0, candidate = 3, 3 == candidate so count = 1
             
-            [3,2,3]
-             i        count == 0; candidate = 3, candidate == num, count = 1
-               i      count != 0; candidate != 2, count = 0
-                 i    count == 0; candidate = 3, candiate == num, count = 1
-
-            return candidate = 3
-
-
-            [2,2,1,1,1,2,2]
-             i               count = 0, candidate = num, candidate == 2, count = 1
-               i             count != 0, candidate = num, count = 2
-                 i           count != 0, candidate != num, count = 1
-                   i         count != 0, candidate != num, count = 0
-                     i       count == 0, candidate = num, candidate = 0, count = 1
-                       i     count != 0, candidate != num, count = 0
-                         i   count == 0, candidate = num, candidate == 2, count = 1
-
-            return candidate = 2  
+            return candidate
         */
 
         int candidate {};
@@ -44,5 +37,6 @@ public:
         }
 
         return candidate;
+
     }
 };
