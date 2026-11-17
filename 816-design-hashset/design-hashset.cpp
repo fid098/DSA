@@ -15,13 +15,7 @@ public:
     }
     
     bool contains(int key) {
-        for (int i {}; i < HashSet.size(); i++){
-            if (HashSet[i] == key){
-                return true;
-            }
-        }
-
-        return false;
+        return std::find(HashSet.begin(), HashSet.end(), key) != HashSet.end();
     }
 };
 
